@@ -79,12 +79,13 @@ class Router {
 	public static function dispatch($url) {
 		$url = self::removeQueryString($url);
 		if (self::matchRoute($url)) {
-			$controller = 'app\controllers\\'.self::$route['controller'];
+			$controller = 'app\controllers\\'.self::$route['controller'].'Controller';
 			if (class_exists($controller)) {
 				$cObj = new $controller(self::$route);
 				$action = self::lowerCamelCase(self::$route['action']).'Action';
 				if (method_exists($cObj, $action)) {
 					$cObj->$action();
+					$cObj->getView();
 				}
 				else {
 					echo "Method <b>$controller::$action</b> not found";
@@ -125,6 +126,12 @@ class Router {
 		return $name;
 	}
 
+	/**
+	 * removeQueryString
+	 * Возвращает строку без GET параметров
+	 * @param  string $url запрос URL
+	 * @return string
+	 */
 	protected static function removeQueryString($url) {
 		if ($url) {
 			$params = explode('&', $url, 2);
