@@ -9,7 +9,8 @@ class User extends Model {
     public $attributes = [
         'login' => '',
         'password' => '',
-        'email' => ''
+        'email' => '',
+        'notifications' => ''
     ];
 
 }

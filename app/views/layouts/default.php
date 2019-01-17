@@ -21,10 +21,24 @@
             <li><a href="/user/logout">Logout</a></li>
         </ul>
 
+        <?php if (isset($_SESSION['error'])): ?>
+            <div>
+                <?=$_SESSION['error']; unset($_SESSION['error'])?>
+            </div>
+        <?php endif; ?>
+
+        <?php if (isset($_SESSION['success'])): ?>
+            <div>
+                <?=$_SESSION['success']; unset($_SESSION['success'])?>
+
+
+            </div>
+        <?php endif; ?>
+
         <?=$content?>
 
-        <!-- <?= debug(vendor\core\Db::$countSql)?>
-        <?= debug(vendor\core\Db::$queries)?> -->
+<!--        --><?//= debug(vendor\core\Db::$countSql)?>
+<!--        --><?//= debug(vendor\core\Db::$queries)?>
 
     </body>
 </html>

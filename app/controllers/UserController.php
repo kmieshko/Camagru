@@ -12,14 +12,16 @@ class UserController extends AppController {
             $user = new User();
             $data = $_POST;
             $user->load($data);
-            if ($user->validate($data)) {
-                echo 'OK';
+            if (!$user->validate($data)) {
+                $user->getErrors();
+                redirect();
             }
-            else {
-                echo 'NO';
-            }
+            $user->save('users');
+            $_SESSION['success'] = 'You have successfully registered';
+            redirect();
             die;
         }
+
     }
 
     public function loginAction() {
