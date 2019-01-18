@@ -25,11 +25,15 @@ spl_autoload_register(function($class){
     }
 });
 
-// // Router::add('^page\/?(?P<action>[a-z-]+)\/(?P<alias>[a-z-]+)$', ['controller' => 'Page']);
-// Router::add('^page\/(?P<alias>[a-z-]+)$', ['controller' => 'Page', 'action' => 'view']);
-
 // defaults routs
-Router::add('^$', ['controller' => 'Main', 'action' => 'index']);
+
+if (isset($_SESSION['user'])) {
+    Router::add('^$', ['controller' => 'Main', 'action' => 'index']);
+}
+else {
+    Router::add('^$', ['controller' => 'User', 'action' => 'login']);
+}
+//Router::add('^$', ['controller' => 'User', 'action' => 'login']);
 Router::add('^(?P<controller>[a-z-]+)\/?(?P<action>[a-z-]+)?$');
 
 Router::dispatch($query);
