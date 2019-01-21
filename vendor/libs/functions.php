@@ -1,20 +1,22 @@
 <?php
 
-function debug($arr) {
-    echo '<pre>'.print_r($arr, true).'</pre>';
+function debug($arr)
+{
+    echo '<pre>' . print_r($arr, true) . '</pre>';
 }
 
-function redirect($http = false) {
+function redirect($http = false)
+{
     if ($http) {
         $redirect = $http;
-    }
-    else {
+    } else {
         $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : '/';
     }
     header("Location: $redirect");
     exit;
 }
 
-function h($str) {
+function h($str)
+{
     return (htmlspecialchars($str, ENT_QUOTES));
 }

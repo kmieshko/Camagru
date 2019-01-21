@@ -2,11 +2,12 @@
 
 namespace vendor\core\base;
 
-abstract class Controller {
+abstract class Controller
+{
     /**
-	 * Текущий маршрут и параметры (controller, action, params)
-	 * @var array
-	 */
+     * Текущий маршрут и параметры (controller, action, params)
+     * @var array
+     */
     public $route = [];
 
     /**
@@ -16,28 +17,31 @@ abstract class Controller {
     public $view;
 
     /**
-	 * Текущий шаблон
-	 * @var string
-	 */
+     * Текущий шаблон
+     * @var string
+     */
     public $layout;
 
     /**
-	 * Пользовательские данные
-	 * @var array
-	 */
-    public $vars = [];    
+     * Пользовательские данные
+     * @var array
+     */
+    public $vars = [];
 
-    public function __construct($route) {
+    public function __construct($route)
+    {
         $this->route = $route;
         $this->view = $route['action'];
     }
 
-    public function getView() {
+    public function getView()
+    {
         $vObj = new View($this->route, $this->layout, $this->view);
         $vObj->render($this->vars);
     }
 
-    public function set($vars) {
+    public function set($vars)
+    {
         $this->vars = $vars;
     }
 

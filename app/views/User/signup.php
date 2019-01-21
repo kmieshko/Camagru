@@ -3,7 +3,8 @@
 <form method="post" action="/user/signup">
     <div>
         <label for="login">Login</label>
-        <input type="text" name="login" placeholder="Login" value="<?=isset($_SESSION['form_data']['login']) ? h($_SESSION['form_data']['login']) : '';?>">
+        <input type="text" name="login" placeholder="Login"
+               value="<?= isset($_SESSION['form_data']['login']) ? h($_SESSION['form_data']['login']) : ''; ?>">
     </div>
     <div>
         <label for="login">Password</label>
@@ -11,7 +12,8 @@
     </div>
     <div>
         <label for="email">Email</label>
-        <input type="text" name="email" placeholder="Email" value="<?=isset($_SESSION['form_data']['email']) ? h($_SESSION['form_data']['email']) : '';?>">
+        <input type="text" name="email" placeholder="Email"
+               value="<?= isset($_SESSION['form_data']['email']) ? h($_SESSION['form_data']['email']) : ''; ?>">
     </div>
     <div>
         <label for="notification">Would you like to receive notifications?</label>
@@ -20,5 +22,5 @@
     </div>
     <button type="submit">Sign Up</button>
 </form>
-<?php if (isset($_SESSION['form_data'])) unset($_SESSION['form_data'])?>
+<?php if (isset($_SESSION['form_data'])) unset($_SESSION['form_data']) ?>
 

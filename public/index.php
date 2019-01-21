@@ -9,17 +9,17 @@ $query = rtrim($_SERVER['QUERY_STRING'], '/');
 session_start();
 
 define('WWW', __DIR__);
-define('CORE', dirname(__DIR__).'/vendor/core');
+define('CORE', dirname(__DIR__) . '/vendor/core');
 define('ROOT', dirname(__DIR__));
-define('APP', dirname(__DIR__).'/app');
+define('APP', dirname(__DIR__) . '/app');
 define('LAYOUT', 'default');
 define('MIN_LENGTH', 6);
 define('MAX_LENGTH', 20);
 
 require '../vendor/libs/functions.php';
 
-spl_autoload_register(function($class){
-    $file = ROOT.'/'.str_replace('\\', '/', $class).'.php';
+spl_autoload_register(function ($class) {
+    $file = ROOT . '/' . str_replace('\\', '/', $class) . '.php';
     if (is_file($file)) {
         require_once $file;
     }
@@ -29,8 +29,7 @@ spl_autoload_register(function($class){
 
 if (isset($_SESSION['user'])) {
     Router::add('^$', ['controller' => 'Main', 'action' => 'index']);
-}
-else {
+} else {
     Router::add('^$', ['controller' => 'User', 'action' => 'login']);
 }
 //Router::add('^$', ['controller' => 'User', 'action' => 'login']);

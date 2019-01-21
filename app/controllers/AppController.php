@@ -1,7 +1,8 @@
 <?php
 
-namespace app\controllers; 
+namespace app\controllers;
 
-class AppController extends \vendor\core\base\Controller {
+class AppController extends \vendor\core\base\Controller
+{
 
 }

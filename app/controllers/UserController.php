@@ -5,9 +5,11 @@ namespace app\controllers;
 use app\models\User;
 use vendor\core\base\View;
 
-class UserController extends AppController {
+class UserController extends AppController
+{
 
-    public function signupAction() {
+    public function signupAction()
+    {
         if (!empty($_POST)) {
             $user = new User();
             $data = $_POST;
@@ -20,26 +22,27 @@ class UserController extends AppController {
             $user->attributes['password'] = password_hash($user->attributes['password'], PASSWORD_DEFAULT);
             $user->save('users');
             $_SESSION['success'] = 'You have successfully registered';
-            redirect();
+            redirect('/user/login');
         }
 
     }
 
-    public function loginAction() {
+    public function loginAction()
+    {
         if (!empty($_POST)) {
             $user = new User();
             $user->login();
             if ($user->login()) {
                 $_SESSION['success'] = 'You have successfully logged in';
-            }
-            else {
+            } else {
                 $_SESSION['error'] = 'Wrong login or password';
             }
-            redirect();
+            redirect('/');
         }
     }
 
-    public function logoutAction() {
+    public function logoutAction()
+    {
         if (isset($_SESSION['user'])) {
             unset($_SESSION['user']);
         }
