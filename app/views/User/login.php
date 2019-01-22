@@ -1,6 +1,4 @@
-<h2>Log In</h2>
-
-<form method="get" action="/user/login">
+<form>
     <div>
         <label for="login">Login</label>
         <input type="text" name="login" id="login" placeholder="Login">

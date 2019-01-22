@@ -1,1 +1,0 @@
-<footer>&copy; Copyright 2019 kmieshko</footer>

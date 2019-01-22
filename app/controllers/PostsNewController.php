@@ -2,26 +2,21 @@
 
 namespace app\controllers;
 
-class PostsNewController extends AppController
-{
+class PostsNewController extends AppController{
 
-    public function indexAction()
-    {
+    public function indexAction() {
         echo 'PostsNew::index';
     }
 
-    public function testAction()
-    {
+    public function testAction() {
         echo 'PostsNew::test';
     }
 
-    public function testPageAction()
-    {
+    public function testPageAction() {
         echo 'PostsNew::testPage';
     }
 
-    protected function before()
-    {
+    protected function before() {
         echo 'PostsNew::before';
     }
 }

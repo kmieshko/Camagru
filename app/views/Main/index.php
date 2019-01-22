@@ -1,1 +1,1 @@
-<code><?= __FILE__ ?></code>
+<code><?=__FILE__?></code>
