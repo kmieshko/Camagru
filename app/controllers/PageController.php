@@ -2,9 +2,11 @@
 
 namespace app\controllers;
 
-class PageController extends AppController {
+class PageController extends AppController
+{
 
-    public function viewAction() {
+    public function viewAction()
+    {
         debug($this->route);
         echo 'Page::view';
     }

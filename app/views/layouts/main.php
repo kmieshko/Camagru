@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <title>Main</title>
-    </head>
-    <body>
-        
-        <h1>Main</h1>
+<head>
+    <meta charset="utf-8">
+    <title>Main</title>
+</head>
+<body>
 
-        <?=$content?>
+<h1>Main</h1>
 
-    </body>
+<?= $content ?>
+
+</body>
 </html>
